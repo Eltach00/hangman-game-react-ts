@@ -1,0 +1,11 @@
+.letterContainer {
+  display: flex;
+  gap: 0.25em;
+  font-size: 6rem;
+  text-transform: uppercase;
+  font-family: monospace;
+}
+
+.underline {
+  border-bottom: 10px solid black;
+}

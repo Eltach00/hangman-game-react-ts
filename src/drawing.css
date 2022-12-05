@@ -1,0 +1,94 @@
+.container {
+  position: relative;
+}
+
+.lowBar {
+  height: 10px;
+  width: 250px;
+  background-color: black;
+}
+
+.middleBar {
+  width: 10px;
+  height: 400px;
+  margin-left: 120px;
+  background-color: black;
+}
+
+.topBar {
+  height: 10px;
+  width: 150px;
+  background-color: black;
+  margin-left: 120px;
+}
+
+.shortBarDown {
+  width: 10px;
+  height: 50px;
+  background: black;
+  top: 0;
+  position: absolute;
+  right: 0;
+}
+
+.HangManHead {
+  height: 50px;
+  width: 50px;
+  border: 10px solid black;
+  border-radius: 100%;
+  position: absolute;
+  top: 50px;
+  right: -30px;
+}
+
+.HangManBody {
+  position: absolute;
+  width: 10px;
+  height: 120px;
+  background: black;
+  top: 120px;
+  right: 0;
+}
+
+.rHand {
+  position: absolute;
+  width: 100px;
+  height: 10px;
+  background: black;
+  top: 150px;
+  rotate: -30deg;
+  right: -100px;
+  transform-origin: left bottom;
+}
+.lHand {
+  position: absolute;
+  width: 100px;
+  height: 10px;
+  background: black;
+  top: 150px;
+  rotate: 30deg;
+  right: 10px;
+  transform-origin: right bottom;
+}
+
+.rLeg {
+  position: absolute;
+  width: 10px;
+  height: 80px;
+  background: black;
+  top: 230px;
+  rotate: -40deg;
+  right: 0;
+  transform-origin: right top;
+}
+
+.lLeg {
+  position: absolute;
+  width: 10px;
+  height: 80px;
+  background: black;
+  top: 235px;
+  rotate: 40deg;
+  right: 0;
+  transform-origin: right top;
+}
