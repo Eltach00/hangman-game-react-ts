@@ -1,15 +1,20 @@
 import HangManDrawing from './Drawing'
-import './app.css'
 import Letters from './Letters'
 import Keyboard from './Keyboard'
 import { useEffect, useState } from 'react'
+import words from './data/words.json'
+import './app.css'
+
+function getWord(): string {
+  return words[Math.floor(Math.random() * words.length)]
+}
 
 function App() {
-  const [wordToGuess, setWordToGuess] = useState<string>('test') //The word to guess
+  const [wordToGuess, setWordToGuess] = useState<string>(getWord) //The word to guess
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]) //guessed letters state
 
   function addKeyToGuessed(letter: string) {
-    if (guessedLetters.includes(letter)) {
+    if (guessedLetters.includes(letter) || isWin || isLose) {
       return
     }
     setGuessedLetters((currentLetters) => [...currentLetters, letter])
@@ -30,7 +35,7 @@ function App() {
     return () => {
       document.removeEventListener('keypress', handler)
     }
-  }, [wordToGuess])
+  }, [wordToGuess, guessedLetters])
   const incorrectLetters = guessedLetters.filter(
     (letter) => !wordToGuess.includes(letter)
   )
@@ -41,18 +46,22 @@ function App() {
     .every((letter) => guessedLetters.includes(letter))
 
   function handleNewGame() {
-    setWordToGuess('test')
+    setWordToGuess(getWord)
     setGuessedLetters([])
   }
 
   return (
     <div className="app">
       <div className="loseWin">
-        {isLose && 'Lose'}
-        {isWin && 'Win'}
+        {isLose && 'Nice try!'}
+        {isWin && 'Winner!'}
       </div>
       <HangManDrawing numberOfGuesses={incorrectLetters.length} />
-      <Letters theWord={wordToGuess} guessedLetters={guessedLetters} />
+      <Letters
+        reveal={isLose}
+        theWord={wordToGuess}
+        guessedLetters={guessedLetters}
+      />
       <Keyboard
         onClick={addKeyToGuessed}
         activeLetters={guessedLetters.filter((letter) =>
