@@ -8,9 +8,9 @@ type LettersProps = {
 export default function Letters({ theWord, guessedLetters }: LettersProps) {
   return (
     <div className="letterContainer">
-      {theWord.split('').map((letter) => {
+      {theWord.split('').map((letter, index) => {
         return (
-          <span className="underline">
+          <span key={index} className="underline">
             <span
               style={{
                 visibility: guessedLetters.includes(letter)

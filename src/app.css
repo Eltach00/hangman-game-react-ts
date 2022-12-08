@@ -9,5 +9,8 @@
 
 .loseWin {
   text-align: center;
-  font-size: 2rem;
+  font-size: 3rem;
+  color: red;
+  font-weight: bold;
+  text-transform: uppercase;
 }

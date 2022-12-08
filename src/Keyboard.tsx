@@ -1,6 +1,6 @@
 import './keyboard.css'
 
-const KEYS = [
+const KEYS: string[] = [
   'A',
   'B',
   'C',
@@ -27,18 +27,44 @@ const KEYS = [
   'X',
   'Y',
   'Z',
-]
+].map((letter) => letter.toLowerCase())
 
-export default function Keyboard() {
+type KeyboardProps = {
+  onClick: (letter: string) => void
+  activeLetters: string[]
+  inActiveLetters: string[]
+  endGame: boolean
+  newGame: () => void
+}
+
+export default function Keyboard({
+  onClick,
+  activeLetters,
+  inActiveLetters,
+  endGame,
+  newGame,
+}: KeyboardProps) {
   return (
     <div className="keyboard">
-      {KEYS.map((item, ind) => {
+      {KEYS.map((letter, ind) => {
+        const active = activeLetters.includes(letter)
+        const inActive = inActiveLetters.includes(letter)
         return (
-          <button className="btn" key={ind}>
-            {item}
+          <button
+            disabled={inActive || active || endGame}
+            className={`btn ${active ? 'active' : ''} ${
+              inActive ? 'inactive' : ''
+            }`}
+            key={ind}
+            onClick={() => onClick(letter)}
+          >
+            {letter}
           </button>
         )
       })}
+      <button className="btn ng" onClick={() => newGame()}>
+        New Game
+      </button>
     </div>
   )
 }

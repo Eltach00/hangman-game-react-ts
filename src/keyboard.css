@@ -17,6 +17,19 @@
   color: black;
 }
 
+.btn.ng {
+  width: 100%;
+  border: 3px solid black;
+  background: none;
+  aspect-ratio: 1 / 1;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  padding: 0.1rem;
+  cursor: pointer;
+  color: black;
+  font-weight: 400;
+}
+
 .btn.active {
   background-color: hsl(200, 100%, 50%);
   color: white;
@@ -29,4 +42,8 @@
 .btn:hover:not(:disabled),
 .btn:focus:not(:disabled) {
   background-color: hsl(200, 100%, 75%);
+}
+
+.btn:hover:disabled {
+  cursor: not-allowed;
 }
