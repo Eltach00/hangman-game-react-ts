@@ -1,5 +1,8 @@
 # The Hangman Game
 
+# Deploy link
+https://hangman-game-react-ts.vercel.app/
+
 ## Builed via Vite, used React with TypeScript
 
 ## Available Scripts
